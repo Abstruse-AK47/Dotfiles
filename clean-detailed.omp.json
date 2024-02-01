@@ -40,7 +40,7 @@
                     "type": "shell"
                 },
                 {
-                    "background": "#516BEB",
+                    "background": "#00afff",
                     "foreground": "#ffffff",
                     "leading_diamond": "\ue0b2",
                     "style": "diamond",
