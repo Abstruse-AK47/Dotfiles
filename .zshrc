@@ -117,6 +117,8 @@ path+=('/usr/local/go/bin')
 path+=('/home/madara/oh-my-posh')
 
 eval "$(oh-my-posh init zsh --config ~/clean-detailed.omp.json)"
+
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/madara/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -133,3 +135,5 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
