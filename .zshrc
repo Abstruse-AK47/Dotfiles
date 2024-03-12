@@ -137,3 +137,7 @@ unset __conda_setup
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+eval "$(atuin init zsh)"
+export FPATH="<path_to_eza>/completions/zsh:$FPATH"
