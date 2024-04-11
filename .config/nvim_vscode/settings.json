@@ -965,7 +965,7 @@
       "command": "workbench.action.splitEditor"
     },
     {
-      "key": "w",
+      "key": "W",
       "name": "Window...",
       "type": "bindings",
       "bindings": [
