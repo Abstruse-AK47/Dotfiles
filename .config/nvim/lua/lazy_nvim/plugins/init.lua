@@ -5,7 +5,5 @@ return {
 
 	"inkarkat/vim-ReplaceWithRegister", -- replace with register contents using motion (gr + motion)
 
-	"xiyaowong/transparent.nvim", -- for transparent bg
-
 	"jpmcb/nvim-llama", -- for ollama on docker
 }

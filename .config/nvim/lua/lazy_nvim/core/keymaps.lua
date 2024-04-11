@@ -9,8 +9,14 @@ keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
+--save file and exit commands
+keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Save File" })
+keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Close File" })
+keymap.set("n", "<leader>qa", "<cmd>qa<CR>", { desc = "Close all" })
+keymap.set("n", "<leader>qx", "<cmd>qa!<CR>", { desc = "exit nvim" })
+
 -- delete single character without copying into register
--- keymap.set("n", "x", '"_x')
+keymap.set("n", "x", '"_x')
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
