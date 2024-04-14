@@ -1,0 +1,10 @@
+2024-04-14 02:33:15.001 [info] Started initializing default profile extensions in extensions installation folder. file:///home/madara/.vscode-oss/extensions
+2024-04-14 02:33:15.112 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/home/madara/.vscode-oss/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/home/madara/.vscode-oss/extensions/extensions.json.vsctmp'
+    at r.create (/usr/share/codium/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:53:35301)
+    at a (/usr/share/codium/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:53:35436)
+    at i.toFileSystemProviderError (/usr/share/codium/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:58:48171)
+    at i.stat (/usr/share/codium/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:58:38766)
+    at async S.stat (/usr/share/codium/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:58:21270)
+    at async G.onDidFilesChange (/usr/share/codium/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:104:134142)
+2024-04-14 02:33:15.131 [warning] Failed to create default profile extensions manifest in extensions installation folder. file:///home/madara/.vscode-oss/extensions Unable to create file 'vscode-userdata:/home/madara/.vscode-oss/extensions/extensions.json' that already exists when overwrite flag is not set
+2024-04-14 02:33:15.131 [info] Completed initializing default profile extensions in extensions installation folder. file:///home/madara/.vscode-oss/extensions
