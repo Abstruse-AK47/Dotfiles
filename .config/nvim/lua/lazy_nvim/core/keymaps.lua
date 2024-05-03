@@ -1,5 +1,5 @@
 local keymap = vim.keymap -- for conciseness
-
+local wk = require 'which-key'
 ---------------------
 -- General Keymaps -------------------
 
@@ -39,3 +39,88 @@ keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Tmux Navigate Le
 keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Tmux Navigate Down" })
 keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Tmux Navigate Up" })
 keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Tmux Navigate Right" })
+
+--snippets
+
+local is_code_chunk = function()
+  local current, _ = require('otter.keeper').get_current_language_context()
+  if current then
+    return true
+  else
+    return false
+  end
+end
+
+--- Insert code chunk of given language
+--- Splits current chunk if already within a chunk
+--- @param lang string
+local insert_code_chunk = function(lang)
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<esc>', true, false, true), 'n', true)
+  local keys
+  if is_code_chunk() then
+    keys =[[o```<cr><cr>```{]] .. lang .. [[}<esc>o]]
+  else
+    keys =  [[o```{]] .. lang .. [[}<cr>```<esc>O]]
+  end
+  keys = vim.api.nvim_replace_termcodes(keys, true, false, true)
+  vim.api.nvim_feedkeys(keys, 'n', false)
+end
+
+local insert_r_chunk = function()
+  insert_code_chunk 'r'
+end
+
+local insert_py_chunk = function()
+  insert_code_chunk 'python'
+end
+
+
+
+
+
+local insert_title_chunk = function()
+  insert_code_chunk 'title'
+end
+
+local insert_bash_chunk = function()
+  insert_code_chunk 'bash'
+end
+
+local insert_ojs_chunk = function()
+  insert_code_chunk 'ojs'
+end
+
+--show kepbindings with whichkey
+--add your own here if you want them to
+--show up in the popup as well
+
+-- normal mode
+wk.register({
+  ['<m-i>'] = { insert_r_chunk, 'r code chunk' },
+  ['<cm-i>'] = { insert_py_chunk, 'python code chunk' },
+  ['<m-O>'] =  { insert_title_chunk, 'python_title code chunk' },
+}, { mode = 'n', silent = true })
+
+-- visual mode
+wk.register({
+  ['<M-j>'] = { ":m'>+<cr>`<my`>mzgv`yo`z", 'move line down' },
+  ['<M-k>'] = { ":m'<-2<cr>`>my`<mzgv`yo`z", 'move line up' },
+  ['.'] = { ':norm .<cr>', 'repat last normal mode command' },
+  ['q'] = { ':norm @q<cr>', 'repat q macro' },
+}, { mode = 'v' })
+
+-- visual with <leader>
+wk.register({
+  p = { '"_dP', 'replace without overwriting reg' },
+  d = { '"_d', 'delete without overwriting reg' },
+}, { mode = 'v', prefix = '<leader>' })
+
+-- insert mode
+wk.register({
+  ['<m-->'] = { ' <- ', 'assign' },
+  ['<m-m>'] = { ' |>', 'pipe' },
+  ['<m-i>'] = { insert_r_chunk, 'r code chunk' },
+  ['<cm-i>'] = { insert_py_chunk, 'python code chunk' },
+  ['<m-I>'] = { insert_py_chunk, 'python code chunk' },
+}, { mode = 'i' })
+

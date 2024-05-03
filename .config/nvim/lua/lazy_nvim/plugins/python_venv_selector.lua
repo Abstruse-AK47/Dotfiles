@@ -5,7 +5,7 @@ return {
 	opts = {
 		-- Your options go here
 		name = { ".venv", "C_env" },
-		enable_debug_output = true,
+	--	enable_debug_output = true,
 		-- auto_refresh = false
 	},
 

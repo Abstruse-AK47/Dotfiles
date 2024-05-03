@@ -19,6 +19,13 @@ return {
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
 
+
+    -- Load luasnip with vscode style snippets
+   require("luasnip.loaders.from_vscode").lazy_load({paths = "~/.config/nvim/lua/lazy_nvim/plugins/snips"})
+    -- link quarto and rmarkdown to markdown snippets
+      luasnip.filetype_extend('quarto', { 'markdown' })
+      luasnip.filetype_extend('rmarkdown', { 'markdown' })
+
     cmp.setup({
       completion = {
         completeopt = "menu,menuone,preview,noselect",
