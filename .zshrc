@@ -110,7 +110,7 @@ source $ZSH/oh-my-zsh.sh
 alias bat='batcat'
 alias z='eza'
 alias gawk="awk"
-
+alias Ipython="python3 -m IPython"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -145,6 +145,8 @@ unset __conda_setup
 
 eval "$(atuin init zsh)"
 export FPATH="<path_to_eza>/completions/zsh:$FPATH"
-export BROWSER="/mnt/c/Program Files/Mozilla Firefox/firefox.exe"
-
-
+export BROWSER="wsl-open"
+#chmod 0700  /run/user/1000
+export DISPLAY=:0.0
+export PATH="/home/madara/.local/bin:$PATH"
+chmod 0700 /run/user/1000/
