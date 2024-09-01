@@ -165,13 +165,14 @@ return {
     enable = true,
     build = ":UpdateRemotePlugins",
     init = function()
+        vim.g.molten_open_cmd = "wsl-open" -- "/mnt/c/Program Files/Mozilla Firefox/firefox.exe"
         vim.g.molten_output_win_max_height = 50
         vim.g.molten_use_border_highlights = true
         vim.g.molten_auto_open_output = false
         vim.g.molten_auto_image_popup = true
         vim.g.molten_virt_text_output = true
         vim.g.molten_virt_lines_off_by_1 = true
-        vim.g.molten_auto_open_html_in_browser = true
+        vim.g.molten_auto_open_html_in_browser = false
     local runner = require("quarto.runner")
           vim.keymap.set("n", "<leader>mc", runner.run_cell,  { desc = "run cell", silent = true })
           vim.keymap.set("n", "<leader>ma", runner.run_above, { desc = "run cell and above", silent = true })
@@ -185,9 +186,9 @@ return {
 
     end,
       keys = {
-      { "<leader>mi", ":MoltenInit<cr>", desc = "Init"},
-			{ "<leader>mv",	":<C-u>MoltenEvaluateVisual<cr>", mode = "v", desc = "Eval visual",},
-			{ "<leader>mr", ":MoltenReevaluateCell<cr>", desc = "Re-eval cell" },
+      {"<leader>mi", ":MoltenInit<cr>", desc = "Init"},
+			{"<leader>mv",	":<C-u>MoltenEvaluateVisual<cr>", mode = "v", desc = "Eval visual",},
+			{"<leader>mr", ":MoltenReevaluateCell<cr>", desc = "Re-eval cell" },
       {"<leader>mh", ":MoltenHideOutput<cr>", desc = "Hide output"},
       {"<leader>me", ":MoltenEvaluateOperator<cr>", desc = "Evaluate Operator", silent = true},
       {"<leader>mq", ":noautocmd MoltenEnterOutput<cr>", desc = "Open Output Window", silent = true},
