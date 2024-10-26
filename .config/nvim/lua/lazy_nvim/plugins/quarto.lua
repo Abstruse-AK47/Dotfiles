@@ -158,42 +158,43 @@ return {
 		keys = {
 			{ "<leader>qm", ':lua require"nabla".toggle_virt()<cr>', desc = "toggle math equations" },
 		},
-	},
 
-	{
-	"benlubas/molten-nvim",
-    enable = true,
-    build = ":UpdateRemotePlugins",
-    init = function()
-        vim.g.molten_open_cmd = "wsl-open" -- "/mnt/c/Program Files/Mozilla Firefox/firefox.exe"
-        vim.g.molten_output_win_max_height = 50
-        vim.g.molten_use_border_highlights = true
-        vim.g.molten_auto_open_output = false
-        vim.g.molten_auto_image_popup = true
-        vim.g.molten_virt_text_output = true
-        vim.g.molten_virt_lines_off_by_1 = true
-        vim.g.molten_auto_open_html_in_browser = false
-    local runner = require("quarto.runner")
-          vim.keymap.set("n", "<leader>mc", runner.run_cell,  { desc = "run cell", silent = true })
-          vim.keymap.set("n", "<leader>ma", runner.run_above, { desc = "run cell and above", silent = true })
-          vim.keymap.set("n", "<leader>mA", runner.run_all,   { desc = "run all cells", silent = true })
-          vim.keymap.set("n", "<leader>mL", runner.run_line,  { desc = "run line", silent = true })
-          vim.keymap.set("v", "<leader>my",  runner.run_range, { desc = "run visual range", silent = true })
-          vim.keymap.set("n", "<leader>mC", function()
-          runner.run_all(true)
-          end, { desc = "run all cells of all languages", silent = true })
-
-
-    end,
-      keys = {
-      {"<leader>mi", ":MoltenInit<cr>", desc = "Init"},
-			{"<leader>mv",	":<C-u>MoltenEvaluateVisual<cr>", mode = "v", desc = "Eval visual",},
-			{"<leader>mr", ":MoltenReevaluateCell<cr>", desc = "Re-eval cell" },
-      {"<leader>mh", ":MoltenHideOutput<cr>", desc = "Hide output"},
-      {"<leader>me", ":MoltenEvaluateOperator<cr>", desc = "Evaluate Operator", silent = true},
-      {"<leader>mq", ":noautocmd MoltenEnterOutput<cr>", desc = "Open Output Window", silent = true},
-      {"<leader>ms", ":MoltenSave<cr>", desc = "Save kernel", silent = true},
-      {"<leader>ml", ":MoltenLoad<cr>", desc = "Load kernel", silent = true},
-    },
   },
+{
+"benlubas/molten-nvim",
+  enable = true,
+  build = ":UpdateRemotePlugins",
+  init = function()
+      vim.g.molten_open_cmd = "wsl-open" -- "/mnt/c/Program Files/Mozilla Firefox/firefox.exe"
+      vim.g.molten_output_win_max_height = 50
+      vim.g.molten_output_win_max_width = 500
+      vim.g.molten_use_border_highlights = true
+      vim.g.molten_auto_open_output = false
+      vim.g.molten_auto_image_popup = true
+      vim.g.molten_virt_text_output = true
+      vim.g.molten_virt_lines_off_by_1 = true
+      vim.g.molten_auto_open_html_in_browser = false
+  local runner = require("quarto.runner")
+        vim.keymap.set("n", "<leader>mc", runner.run_cell,  { desc = "run cell", silent = true })
+        vim.keymap.set("n", "<leader>ma", runner.run_above, { desc = "run cell and above", silent = true })
+        vim.keymap.set("n", "<leader>mA", runner.run_all,   { desc = "run all cells", silent = true })
+        vim.keymap.set("n", "<leader>mL", runner.run_line,  { desc = "run line", silent = true })
+        vim.keymap.set("v", "<leader>my",  runner.run_range, { desc = "run visual range", silent = true })
+        vim.keymap.set("n", "<leader>mC", function()
+        runner.run_all(true)
+        end, { desc = "run all cells of all languages", silent = true })
+
+
+  end,
+    keys = {
+    {"<leader>mi", ":MoltenInit<cr>", desc = "Init"},
+		{"<leader>mv",	":<C-u>MoltenEvaluateVisual<cr>", mode = "v", desc = "Eval visual",},
+		{"<leader>mr", ":MoltenReevaluateCell<cr>", desc = "Re-eval cell" },
+    {"<leader>mh", ":MoltenHideOutput<cr>", desc = "Hide output"},
+    {"<leader>me", ":MoltenEvaluateOperator<cr>", desc = "Evaluate Operator", silent = true},
+    {"<leader>mq", ":noautocmd MoltenEnterOutput<cr>", desc = "Open Output Window", silent = true},
+    {"<leader>ms", ":MoltenSave<cr>", desc = "Save kernel", silent = true},
+    {"<leader>ml", ":MoltenLoad<cr>", desc = "Load kernel", silent = true},
+  },
+},
 }

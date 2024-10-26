@@ -1,5 +1,5 @@
 local keymap = vim.keymap -- for conciseness
-local wk = require 'which-key'
+
 ---------------------
 -- General Keymaps -------------------
 
@@ -74,53 +74,19 @@ local insert_py_chunk = function()
   insert_code_chunk 'python'
 end
 
-
-
-
-
 local insert_title_chunk = function()
   insert_code_chunk 'title'
 end
 
-local insert_bash_chunk = function()
-  insert_code_chunk 'bash'
-end
-
-local insert_ojs_chunk = function()
-  insert_code_chunk 'ojs'
-end
-
---show kepbindings with whichkey
 --add your own here if you want them to
 --show up in the popup as well
 
 -- normal mode
-wk.register({
-  ['<m-i>'] = { insert_r_chunk, 'r code chunk' },
-  ['<cm-i>'] = { insert_py_chunk, 'python code chunk' },
-  ['<m-O>'] =  { insert_title_chunk, 'python_title code chunk' },
-}, { mode = 'n', silent = true })
-
--- visual mode
-wk.register({
-  ['<M-j>'] = { ":m'>+<cr>`<my`>mzgv`yo`z", 'move line down' },
-  ['<M-k>'] = { ":m'<-2<cr>`>my`<mzgv`yo`z", 'move line up' },
-  ['.'] = { ':norm .<cr>', 'repat last normal mode command' },
-  ['q'] = { ':norm @q<cr>', 'repat q macro' },
-}, { mode = 'v' })
-
--- visual with <leader>
-wk.register({
-  p = { '"_dP', 'replace without overwriting reg' },
-  d = { '"_d', 'delete without overwriting reg' },
-}, { mode = 'v', prefix = '<leader>' })
+keymap.set("n", "<m-i>", insert_r_chunk, { desc = "r code chunk" , silent = true})
+keymap.set("n", "<cm-i>", insert_py_chunk, { desc = "python chunk" , silent = true})
+keymap.set("n", "<m-O>", insert_title_chunk, { desc = "python_title code chunk", silent = true })
 
 -- insert mode
-wk.register({
-  ['<m-->'] = { ' <- ', 'assign' },
-  ['<m-m>'] = { ' |>', 'pipe' },
-  ['<m-i>'] = { insert_r_chunk, 'r code chunk' },
-  ['<cm-i>'] = { insert_py_chunk, 'python code chunk' },
-  ['<m-I>'] = { insert_py_chunk, 'python code chunk' },
-}, { mode = 'i' })
+keymap.set("i", "<m-->", "<-", { desc = "assign" })
+keymap.set("i", "<m-m>", "|>", { desc = "pipe"})
 

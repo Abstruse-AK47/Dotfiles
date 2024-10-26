@@ -43,3 +43,5 @@ opt.swapfile = false
 
 --remove ~ sign
 vim.opt.fillchars:append({ eob = " " })
+
+
