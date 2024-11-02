@@ -85,9 +85,9 @@ return {
 		dev = false,
 		opts = {
 			lspFeatures = {
-				languages = { "r", "python", "julia", "bash", "lua", "html", "dot", "javascript", "typescript", "ojs" },
+				languages = { "r", "python", "julia", "bash", "lua", "html", "dot", "javascript", "typescript", "ojs" , "tex"},
 			},
-			codeRunner = {
+      coderunner = {
 				enabled = true,
 				default_method = "molten",
 			},
@@ -104,7 +104,7 @@ return {
 		-- and convert back behind the scenes
 		-- needs:
 		-- pip install jupytext
-		"GCBallesteros/jupytext.nvim",
+		"gcballesteros/jupytext.nvim",
 		opts = {
 			custom_language_formatting = {
 				python = {
@@ -123,8 +123,8 @@ return {
 
 
 	{ -- paste an image from the clipboard or drag-and-drop
-		"HakonHarnes/img-clip.nvim",
-		event = "BufEnter",
+		"hakonharnes/img-clip.nvim",
+		event = "bufenter",
 		ft = { "markdown", "quarto", "latex" },
 		opts = {
 			default = {
@@ -133,14 +133,14 @@ return {
 			filetypes = {
 				markdown = {
 					url_encode_path = true,
-					template = "![$CURSOR]($FILE_PATH)",
+					template = "![$cursor]($file_path)",
 					drag_and_drop = {
 						download_images = false,
 					},
 				},
 				quarto = {
 					url_encode_path = true,
-					template = "![$CURSOR]($FILE_PATH)",
+					template = "![$cursor]($file_path)",
 					drag_and_drop = {
 						download_images = false,
 					},
@@ -149,7 +149,7 @@ return {
 		},
 		config = function(_, opts)
 			require("img-clip").setup(opts)
-			vim.keymap.set("n", "<leader>ii", ":PasteImage<cr>", { desc = "insert image from clipboard" })
+			vim.keymap.set("n", "<leader>ii", ":pasteimage<cr>", { desc = "insert image from clipboard" })
 		end,
 	},
 
@@ -163,9 +163,9 @@ return {
 {
 "benlubas/molten-nvim",
   enable = true,
-  build = ":UpdateRemotePlugins",
+  build = ":updateremoteplugins",
   init = function()
-      vim.g.molten_open_cmd = "wsl-open" -- "/mnt/c/Program Files/Mozilla Firefox/firefox.exe"
+      vim.g.molten_open_cmd = "wsl-open" -- "/mnt/c/program files/mozilla firefox/firefox.exe"
       vim.g.molten_output_win_max_height = 50
       vim.g.molten_output_win_max_width = 500
       vim.g.molten_use_border_highlights = true
@@ -195,6 +195,9 @@ return {
     {"<leader>mq", ":noautocmd MoltenEnterOutput<cr>", desc = "Open Output Window", silent = true},
     {"<leader>ms", ":MoltenSave<cr>", desc = "Save kernel", silent = true},
     {"<leader>ml", ":MoltenLoad<cr>", desc = "Load kernel", silent = true},
+    {"<leader>mo", ":!wsl-open output.jpg<cr>", desc = "Open Image", silent = true},
+    {"<leader>md", ":!rm -rf output.jpg<cr>", desc = "Remove Image", silent = true},
+    {"<leader>mb", ":MoltenOpenInBrowser<cr>", desc = "Open in browser", silent = true},
   },
 },
 }

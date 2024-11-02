@@ -4,10 +4,15 @@ return {
   dependencies = {
     "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-path", -- source for file system paths
+    "hrsh7th/cmp-calc",-- source for maths snips
+    "ray-x/cmp-treesitter",-- for treesitter
+    "jmbuhr/cmp-pandoc-references", -- for cross refrencing
     "L3MON4D3/LuaSnip", -- snippet engine
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
     "onsails/lspkind.nvim", -- vs-code like pictograms
+    "iurimateus/luasnip-latex-snippets.nvim",-- snippets for latex
+    "kdheepak/cmp-latex-symbols", -- for latex
   },
   config = function()
     local cmp = require("cmp")
@@ -17,16 +22,19 @@ return {
     local lspkind = require("lspkind")
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
-    require("luasnip.loaders.from_vscode").lazy_load()
-
+      require("luasnip.loaders.from_vscode").lazy_load()
 
     -- Load luasnip with vscode style snippets
-   require("luasnip.loaders.from_vscode").lazy_load({paths = "~/.config/nvim/lua/lazy_nvim/plugins/snips"})
-    -- link quarto and rmarkdown to markdown snippets
-      luasnip.filetype_extend('quarto', { 'markdown' })
-      luasnip.filetype_extend('rmarkdown', { 'markdown' })
+      require("luasnip.loaders.from_vscode").lazy_load({paths = "~/.config/nvim/lua/lazy_nvim/plugins/snips"})
 
-    cmp.setup({
+    -- link quarto and rmarkdown to markdown snippets
+      luasnip.filetype_extend("quarto", {"markdown"})
+      luasnip.filetype_extend("rmarkdown", {"markdown"})
+      luasnip.filetype_extend("quarto", {"tex"})
+      luasnip.filetype_extend("rmarkdown", {"tex"})
+      luasnip.filetype_extend('markdown', { 'tex' })
+
+        cmp.setup({
       completion = {
         completeopt = "menu,menuone,preview,noselect",
       },
@@ -35,6 +43,8 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       },
+      enable_autosnippets = true,
+      use_treesitter = true,
       mapping = cmp.mapping.preset.insert({
         ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
         ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion

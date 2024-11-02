@@ -119,8 +119,9 @@ export GDK_SCALE=2
 path+=('/home/madara/.cargo/bin')
 path+=('/usr/local/go/bin')
 path+=('/home/madara/oh-my-posh')
+export PATH="$PATH:/opt/nvim-linux64/bin"
 
-eval "$(oh-my-posh init zsh --config ~/clean-detailed.omp.json)"
+#eval "$(oh-my-posh init zsh --config ~/clean-detailed.omp.json)"
 
 
 # >>> conda initialize >>>
@@ -143,10 +144,22 @@ unset __conda_setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
-eval "$(atuin init zsh)"
+#eval "$(atuin init zsh)"
 export FPATH="<path_to_eza>/completions/zsh:$FPATH"
 export BROWSER="wsl-open"
 #chmod 0700  /run/user/1000
 export DISPLAY=:0.0
 export PATH="/home/madara/.local/bin:$PATH"
-chmod 0700 /run/user/1000/
+#chmod 0700 /run/user/1000/
+
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init zsh)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(oh-my-posh --init --shell zsh --config ~/clean-detailed.omp.json)"
+#export DISPLAY=localhost:0.0
+export CUDNN_PATH=$(dirname $(python3 -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
+export LD_LIBRARY_PATH=${CUDNN_PATH}/lib
+export XLA_FLAGS=--xla_gpu_cuda_data_dir=/usr/lib/cuda
