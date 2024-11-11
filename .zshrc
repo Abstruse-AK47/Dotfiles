@@ -126,14 +126,14 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/madara/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/madara/conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/madara/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/madara/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/madara/conda/etc/profile.d/conda.sh" ]; then
+        . "/home/madara/conda/etc/profile.d/conda.sh"
     else
-        export PATH="/home/madara/miniconda3/bin:$PATH"
+        export PATH="/home/madara/conda/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -160,6 +160,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 eval "$(oh-my-posh --init --shell zsh --config ~/clean-detailed.omp.json)"
 #export DISPLAY=localhost:0.0
-export CUDNN_PATH=$(dirname $(python3 -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
+#export CUDNN_PATH=$(dirname $(python3 -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
+export CUDNN_PATH=/home/madara/conda/lib/python3.12/site-packages/nvidia/cudnn/__init__.py
 export LD_LIBRARY_PATH=${CUDNN_PATH}/lib
 export XLA_FLAGS=--xla_gpu_cuda_data_dir=/usr/lib/cuda
+#export PATH="$HOME/conda/bin:$PATH"
