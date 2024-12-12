@@ -158,10 +158,14 @@ eval "$(atuin init zsh)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-eval "$(oh-my-posh --init --shell zsh --config ~/clean-detailed.omp.json)"
+eval "$(oh-my-posh --init --shell zsh --config ~/themes/half-life.omp.json)"
 #export DISPLAY=localhost:0.0
 #export CUDNN_PATH=$(dirname $(python3 -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
 export CUDNN_PATH=/home/madara/conda/lib/python3.12/site-packages/nvidia/cudnn/__init__.py
 export LD_LIBRARY_PATH=${CUDNN_PATH}/lib
 export XLA_FLAGS=--xla_gpu_cuda_data_dir=/usr/lib/cuda
+export LD_LIBRARY_PATH="/usr/lib/wsl/lib/"  
+export NUMBA_CUDA_DRIVER="/usr/lib/wsl/lib/libcuda.so.1"
 #export PATH="$HOME/conda/bin:$PATH"
+export JAVA_HOME=/path/to/java
+export PATH=$JAVA_HOME/bin:$PATH

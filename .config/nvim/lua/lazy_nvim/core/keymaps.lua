@@ -6,6 +6,10 @@ local keymap = vim.keymap -- for conciseness
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
+-- use -> to make → and <- to make ← 
+keymap.set("i", "->", "→", { desc = "Right arrow" })
+keymap.set("i", "<-", "←", { desc = "Left arrow" })
+
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
