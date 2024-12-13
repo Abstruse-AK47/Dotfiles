@@ -17,9 +17,11 @@ return {
 				json = { "prettier" },
 				yaml = { "prettier" },
 				markdown = { "prettier" },
+				quarto = { "isort" },
 				graphql = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
+				cpp = { "clang-format" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
@@ -36,11 +38,4 @@ return {
 			})
 		end, { desc = "Format file or range (in visual mode)" })
 	end,
-	{
-	 'windwp/nvim-autopairs',
-    config = function()
-      require('nvim-autopairs').setup {}
-      require('nvim-autopairs').remove_rule '`'
-    end,
-	},
 }
