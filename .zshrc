@@ -1,15 +1,13 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+path+=('/home/madara/oh-my-posh')
+
+eval "$(oh-my-posh --init --shell zsh --config ~/themes/half-life.omp.json)"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -77,7 +75,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting docker)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting docker fzf-tab)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -87,7 +85,12 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -108,7 +111,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias bat='batcat'
-alias z='eza'
+alias z='eza --icons=always'
 alias gawk="awk"
 alias Ipython="python3 -m IPython"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -118,7 +121,6 @@ export GDK_SCALE=2
 
 path+=('/home/madara/.cargo/bin')
 path+=('/usr/local/go/bin')
-path+=('/home/madara/oh-my-posh')
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
 #eval "$(oh-my-posh init zsh --config ~/clean-detailed.omp.json)"
@@ -152,13 +154,15 @@ export DISPLAY=:0.0
 export PATH="/home/madara/.local/bin:$PATH"
 #chmod 0700 /run/user/1000/
 
+# Shell integrations
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-eval "$(oh-my-posh --init --shell zsh --config ~/themes/half-life.omp.json)"
 #export DISPLAY=localhost:0.0
 #export CUDNN_PATH=$(dirname $(python3 -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
 export CUDNN_PATH=/home/madara/conda/lib/python3.12/site-packages/nvidia/cudnn/__init__.py
