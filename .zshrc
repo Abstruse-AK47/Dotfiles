@@ -5,9 +5,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-path+=('/home/madara/oh-my-posh')
-
-eval "$(oh-my-posh --init --shell zsh --config ~/themes/half-life.omp.json)"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -75,7 +72,14 @@ eval "$(oh-my-posh --init --shell zsh --config ~/themes/half-life.omp.json)"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting docker fzf-tab)
+plugins=(git 
+         zsh-autosuggestions 
+         zsh-syntax-highlighting 
+         docker 
+         fzf-tab
+         you-should-use
+         zsh-vi-mode
+       )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -122,6 +126,7 @@ export GDK_SCALE=2
 path+=('/home/madara/.cargo/bin')
 path+=('/usr/local/go/bin')
 export PATH="$PATH:/opt/nvim-linux64/bin"
+path+=('/home/madara/oh-my-posh')
 
 #eval "$(oh-my-posh init zsh --config ~/clean-detailed.omp.json)"
 
@@ -141,10 +146,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+_comp_options+=(globdots)	
 
 #eval "$(atuin init zsh)"
 export FPATH="<path_to_eza>/completions/zsh:$FPATH"
@@ -158,6 +162,7 @@ export PATH="/home/madara/.local/bin:$PATH"
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(oh-my-posh --init --shell zsh --config ~/themes/half-life.omp.json)"
 
 
 export NVM_DIR="$HOME/.nvm"
@@ -173,3 +178,5 @@ export NUMBA_CUDA_DRIVER="/usr/lib/wsl/lib/libcuda.so.1"
 #export PATH="$HOME/conda/bin:$PATH"
 export JAVA_HOME=/path/to/java
 export PATH=$JAVA_HOME/bin:$PATH
+
+
