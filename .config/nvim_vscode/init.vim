@@ -77,4 +77,6 @@ nmap gcc <Plug>VSCodeCommentaryLine
 " Simulate same TAB behavior in VSCode
 nmap <Tab> :Tabnext<CR>
 nmap <S-Tab> :Tabprev<CR>
-set clipboard=unnamedplus
+
+nmap <jk> <ESC>
+

@@ -4,38 +4,8 @@
   "editor.minimap.enabled": false,
   "editor.formatOnSave": true,
   "editor.scrollbar.vertical": "auto",
-  "window.titleBarStyle": "custom",
+  "window.titleBarStyle": "native",
   "editor.scrollbar.horizontal": "auto",
-  // APC
-  "apc.activityBar": {
-    "position": "bottom",
-    "hideSettings": true,
-    "size": 28
-  },
-  "apc.electron": {
-    "frame": false,
-    "titleBarStyle": "hidden"
-  },
-  "apc.font.family": "Agave Nerd Font",
-  "apc.monospace.font.family": "Agave Nerd Font",
-  "apc.statusBar": {
-    "position": "editor-bottom",
-    "height": 28,
-    "fontSize": 12
-  },
-  // Custom css
-  "apc.stylesheet": {
-    ".sidebar > .composite": "height: 35px !important",
-    ".menuBarVisibility": "display: none !important",
-    ".window-appicon": "display: none !important ",
-    ".title-label": "display: none !important",
-    ".title-actions": "display: none !important",
-    ".tabs-and-actions-container > .editor-actions": "display: none !important",
-    ".titlebar-center": "display: none !important",
-    ".titlebar-right": "display: none !important",
-    ".inline-tabs-placeholder": "display: none !important",
-    ".split-view-view .visible": "background-color: #110f17 !important"
-  },
   //fonts
   "editor.fontFamily": "Agave Nerd Font",
   "workbench.iconTheme": "material-icon-theme",
@@ -98,6 +68,18 @@
       "backgroundColor": "theme.editor.findMatchHighlightBackground",
       "borderColor": "theme.editor.findMatchHighlightBorder"
     }
+  },
+  "vscode-neovim.compositeKeys": {
+    "jk": {
+      // Use lua to execute any logic
+      "command": "vscode-neovim.lua",
+      "args": [
+        [
+          "local code = require('vscode')",
+          "code.action('vscode-neovim.escape')",
+        ],
+      ],
+    },
   },
   "whichkey.sortOrder": "alphabetically",
   "whichkey.delay": 0,
@@ -1077,5 +1059,49 @@
   ],
   "workbench.activityBar.location": "bottom",
   "window.commandCenter": false,
-  "window.menuBarVisibility": "compact"
+  "window.menuBarVisibility": "compact",
+  "workbench.layoutControl.enabled": false,
+  // Custom css/styling
+  //  - https://github.com/subframe7536/vscode-custom-ui-style
+  //  - Workaround error: "Installation appears to be corrupt [Unsupported]"
+  //    - https://github.com/RimuruChan/vscode-fix-checksums
+  //    - https://stackoverflow.com/a/78996147/397334
+  //    - https://code.visualstudio.com/docs/supporting/faq#_installation-appears-to-be-corrupt-unsupported
+  //  - Commands to reload:
+  //    - "Custom UI Style: Reload"
+  //    - "Fix Checksums: Apply"
+  //    - Quit + restart
+  //
+  // Monospace everywhere
+  //
+  // Electron BrowserWindow options
+  //  - https://www.electronjs.org/docs/latest/api/base-window
+  //  - https://www.electronjs.org/docs/latest/api/browser-window
+  "custom-ui-style.electron": {
+    // Frameless window (no title bar, no traffic light buttons)
+    //  - https://www.electronjs.org/docs/latest/tutorial/custom-window-styles#frameless-windows
+    //  - https://www.electronjs.org/docs/latest/tutorial/custom-title-bar
+    "frame": false,
+    // Disable rounded corners
+    //  - "Setting this property to false will prevent the window from being fullscreenable"
+    "roundedCorners": false,
+    // Nope, this re-shows the traffic light buttons
+    //"titleBarStyle": "hidden",
+  },
+  "custom-ui-style.stylesheet": {
+    // TODO Copy from "apc.stylesheet"
+    ".sidebar > .composite": "height: 35px !important",
+    ".menuBarVisibility": "display: none !important",
+    ".window-appicon": "display: none !important ",
+    ".title-label": "display: none !important",
+    ".title-actions": "display: none !important",
+    ".tabs-and-actions-container > .editor-actions": "display: none !important",
+    ".titlebar-center": "display: none !important",
+    ".titlebar-right": "display: none !important",
+    ".inline-tabs-placeholder": "display: none !important",
+    ".split-view-view .visible": "background-color: #110f17 !important"
+  },
+  "custom-ui-style.webview.stylesheet": {
+    // TODO Copy from "apc.iframe.style"
+  },
 }
