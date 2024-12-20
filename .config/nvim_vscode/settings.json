@@ -1,6 +1,6 @@
 {
   //UI
-  "glassit.alpha": 237,
+  "glassit.alpha": 214,
   "editor.minimap.enabled": false,
   "editor.formatOnSave": true,
   "editor.scrollbar.vertical": "auto",
@@ -11,6 +11,23 @@
   "workbench.iconTheme": "material-icon-theme",
   "terminal.integrated.fontFamily": "Agave Nerd Font",
   "workbench.colorTheme": "Dark Horizon",
+  //CSS
+  "custom-ui-style.stylesheet": {
+    // TODO Copy from "apc.stylesheet"
+    ".sidebar > .composite": "height: 35px !important",
+    ".menuBarVisibility": "display: none !important",
+    ".window-appicon": "display: none !important ",
+    ".title-label": "display: none !important",
+    ".title-actions": "display: none !important",
+    ".tabs-and-actions-container > .editor-actions": "display: none !important",
+    ".titlebar-center": "display: none !important",
+    ".titlebar-right": "display: none !important",
+    ".inline-tabs-placeholder": "display: none !important",
+    ".split-view-view .visible": "background-color: #110f17 !important"
+  },
+  "custom-ui-style.webview.stylesheet": {
+    // TODO Copy from "apc.iframe.style"
+  },
   //telemetry disabling
   "telemetry.telemetryLevel": "off",
   "telemetry.enableCrashReporter": false,
@@ -1088,20 +1105,5 @@
     // Nope, this re-shows the traffic light buttons
     //"titleBarStyle": "hidden",
   },
-  "custom-ui-style.stylesheet": {
-    // TODO Copy from "apc.stylesheet"
-    ".sidebar > .composite": "height: 35px !important",
-    ".menuBarVisibility": "display: none !important",
-    ".window-appicon": "display: none !important ",
-    ".title-label": "display: none !important",
-    ".title-actions": "display: none !important",
-    ".tabs-and-actions-container > .editor-actions": "display: none !important",
-    ".titlebar-center": "display: none !important",
-    ".titlebar-right": "display: none !important",
-    ".inline-tabs-placeholder": "display: none !important",
-    ".split-view-view .visible": "background-color: #110f17 !important"
-  },
-  "custom-ui-style.webview.stylesheet": {
-    // TODO Copy from "apc.iframe.style"
-  },
+  "window.customTitleBarVisibility": "never",
 }
