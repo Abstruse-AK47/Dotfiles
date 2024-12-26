@@ -215,6 +215,7 @@ return {
 		end,
 		keys = {
 			{ "<leader>mi", ":MoltenInit<cr>", desc = "Init" },
+			{ "<leader>mv", ":<C-u>MoltenEvaluateVisual<cr>", mode = "v", desc = "Eval visual" },
 			{ "<leader>mr", ":MoltenReevaluateCell<cr>", desc = "Re-eval cell" },
 			{ "<leader>mh", ":MoltenHideOutput<cr>", desc = "Hide output" },
 			{ "<leader>me", ":MoltenEvaluateOperator<cr>", desc = "Evaluate Operator", silent = true },

@@ -24,6 +24,13 @@ end
 
 -- Map a key to toggle the tab bar (e.g., <leader>tt)
 vim.api.nvim_set_keymap("n", "<leader>it", ":lua ToggleTabLine()<CR>", { noremap = true, silent = true })
-
+--
 require("lazy_nvim.lazy")
 require("lazy_nvim.core")
+
+-- Apply settings after lazy_nvim is loaded
+vim.defer_fn(function()
+	-- Ensure both status line and tab line are off by default after plugins load
+	vim.o.laststatus = 0 -- Status line is off by default
+	vim.o.showtabline = 0 -- Tab bar is off by default
+end, 100)
