@@ -114,13 +114,15 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
 alias bat='batcat'
 alias z='eza --icons=always'
 alias gawk="awk"
 alias Ipython="python3 -m IPython"
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+alias code="codium"
+alias help="compgen -c | fzf | xargs man" 
 
+# EXPORTS
 export GDK_SCALE=2
 
 path+=('/home/madara/.cargo/bin')
@@ -146,11 +148,13 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# Set up fzf key bindings and fuzzy completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(fzf --zsh)"
 
 _comp_options+=(globdots)	
 
-#eval "$(atuin init zsh)"
 export FPATH="<path_to_eza>/completions/zsh:$FPATH"
 export BROWSER="wsl-open"
 #chmod 0700  /run/user/1000
@@ -168,8 +172,11 @@ eval "$(oh-my-posh --init --shell zsh --config ~/themes/half-life.omp.json)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 #export DISPLAY=localhost:0.0
+
 #export CUDNN_PATH=$(dirname $(python3 -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
+
 export CUDNN_PATH=/home/madara/conda/lib/python3.12/site-packages/nvidia/cudnn/__init__.py
 export LD_LIBRARY_PATH=${CUDNN_PATH}/lib
 export XLA_FLAGS=--xla_gpu_cuda_data_dir=/usr/lib/cuda
@@ -178,5 +185,9 @@ export NUMBA_CUDA_DRIVER="/usr/lib/wsl/lib/libcuda.so.1"
 #export PATH="$HOME/conda/bin:$PATH"
 export JAVA_HOME=/path/to/java
 export PATH=$JAVA_HOME/bin:$PATH
+
+
+
+
 
 

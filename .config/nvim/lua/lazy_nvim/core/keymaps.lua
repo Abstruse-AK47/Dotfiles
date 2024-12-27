@@ -89,3 +89,6 @@ keymap.set("n", "<m-O>", insert_title_chunk, { desc = "python_title code chunk",
 -- insert mode
 keymap.set("i", "<m-<>", "<-", { desc = "assign" })
 keymap.set("i", "<m-n>", "|>", { desc = "pipe" })
+
+--noice nvim
+keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" })
