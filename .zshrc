@@ -121,7 +121,7 @@ alias gawk="awk"
 alias Ipython="python3 -m IPython"
 alias code="codium"
 alias help="compgen -c | fzf | xargs man" 
-
+alias wezterm="/mnt/c/Program\ Files/WezTerm/wezterm.exe"
 # EXPORTS
 export GDK_SCALE=2
 
@@ -129,6 +129,7 @@ path+=('/home/madara/.cargo/bin')
 path+=('/usr/local/go/bin')
 export PATH="$PATH:/opt/nvim-linux64/bin"
 path+=('/home/madara/oh-my-posh')
+
 
 #eval "$(oh-my-posh init zsh --config ~/clean-detailed.omp.json)"
 
