@@ -193,13 +193,15 @@ return {
 		"benlubas/molten-nvim",
 		enable = true,
 		build = ":UpdateRemotePlugins",
+		dependencies = "willothy/wezterm.nvim",
 		init = function()
-			vim.g.molten_open_cmd = "wsl-open" -- "/mnt/c/Program Files/Mozilla Firefox/firefox.exe"
+			vim.g.molten_image_provider = "image.nvim"
+			--vim.g.molten_open_cmd = "wsl-open" -- "/mnt/c/Program Files/Mozilla Firefox/firefox.exe"
 			vim.g.molten_output_win_max_height = 50
 			vim.g.molten_output_win_max_width = 500
 			vim.g.molten_use_border_highlights = true
 			vim.g.molten_auto_open_output = false
-			vim.g.molten_auto_image_popup = true
+			vim.g.molten_auto_image_popup = false
 			vim.g.molten_virt_text_output = true
 			vim.g.molten_virt_lines_off_by_1 = true
 			vim.g.molten_auto_open_html_in_browser = false

@@ -19,16 +19,16 @@ keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Save File" })
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
 
+-- PageUp and PageDown
+keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Move a PageDown " }) -- PageDown
+keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Move a PageUp" }) -- PageUp
+
+-- Navingating searched words
+keymap.set("n", "n", "nzzzv", { desc = "Moving next word" }) -- PageDown
+keymap.set("n", "N", "Nzzzv", { desc = "Moving previous word" }) -- PageUp
+
 -- window management
--- splits
-
-keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
-keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
-keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
-keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
-
 -- tabs
-
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
