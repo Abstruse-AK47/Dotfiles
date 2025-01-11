@@ -42,36 +42,36 @@ return {
 				{ noremap = true, desc = "Search forward for slime cell delimiter" }
 			)
 			vim.keymap.set("n", "<leader>cc", "<Plug>SlimeSendCell", { noremap = true, desc = "Send cell to slime" })
-			local slime_get_jobid = function()
-				local buffers = vim.api.nvim_list_bufs()
-				local terminal_buffers = { "Select terminal:\tjobid\tname" }
-				local name = ""
-				local jid = 1
-				local chosen_terminal = 1
-
-				for _, buf in ipairs(buffers) do
-					if vim.bo[buf].buftype == "terminal" then
-						jid = vim.api.nvim_buf_get_var(buf, "terminal_job_id")
-						name = vim.api.nvim_buf_get_name(buf)
-						table.insert(terminal_buffers, jid .. "\t" .. name)
-					end
-				end
-
-				-- if there is more than one terminal, ask which one to use
-				if #terminal_buffers > 2 then
-					chosen_terminal = vim.fn.inputlist(terminal_buffers)
-				else
-					chosen_terminal = jid
-				end
-
-				if chosen_terminal then
-					print("\n[slime] jobid chosen: ", chosen_terminal)
-					return chosen_terminal
-				else
-					print("No terminal found")
-				end
-			end
-
+			-- local slime_get_jobid = function()
+			-- 	local buffers = vim.api.nvim_list_bufs()
+			-- 	local terminal_buffers = { "Select terminal:\tjobid\tname" }
+			-- 	local name = ""
+			-- 	local jid = 1
+			-- 	local chosen_terminal = 1
+			--
+			-- 	for _, buf in ipairs(buffers) do
+			-- 		if vim.bo[buf].buftype == "terminal" then
+			-- 			jid = vim.api.nvim_buf_get_var(buf, "terminal_job_id")
+			-- 			name = vim.api.nvim_buf_get_name(buf)
+			-- 			table.insert(terminal_buffers, jid .. "\t" .. name)
+			-- 		end
+			-- 	end
+			--
+			-- 	-- if there is more than one terminal, ask which one to use
+			-- 	if #terminal_buffers > 2 then
+			-- 		chosen_terminal = vim.fn.inputlist(terminal_buffers)
+			-- 	else
+			-- 		chosen_terminal = jid
+			-- 	end
+			--
+			-- 	if chosen_terminal then
+			-- 		print("\n[slime] jobid chosen: ", chosen_terminal)
+			-- 		return chosen_terminal
+			-- 	else
+			-- 		print("No terminal found")
+			-- 	end
+			-- end
+			--
 			local function slime_use_tmux()
 				vim.g.slime_target = "tmux"
 				vim.g.slime_bracketed_paste = 1
@@ -102,24 +102,23 @@ return {
 		"quarto-dev/quarto-nvim",
 		ft = { "quarto" },
 		dev = false,
+		closePreviewOnExit = true,
 		opts = {
 			lspFeatures = {
-				languages = {
-					"r",
-					"python",
-					"julia",
-					"bash",
-					"lua",
-					"html",
-					"dot",
-					"javascript",
-					"typescript",
-					"ojs",
-					"tex",
+				enable = true,
+				chunks = "curly",
+				languages = nil,
+				diagnostics = {
+					enabled = true,
+					triggers = { "BufWritePost" },
+				},
+				completion = {
+					enable = true,
 				},
 			},
 			codeRunner = {
 				default_method = "molten",
+				never_run = { "yaml" },
 			},
 		},
 		dependencies = {
@@ -127,6 +126,9 @@ return {
 			-- configured in lua/plugins/lsp.lua and
 			-- added as a nvim-cmp source in lua/plugins/completion.lua
 			"jmbuhr/otter.nvim",
+			"hrsh7th/nvim-cmp",
+			"neovim/nvim-lspconfig",
+			"nvim-treesitter/nvim-treesitter",
 		},
 	},
 
@@ -169,7 +171,7 @@ return {
 				},
 				quarto = {
 					url_encode_path = true,
-					template = "![$cursor]($file_path)",
+					template = "![$CURSOR]($FILE_PATH)",
 					drag_and_drop = {
 						download_images = false,
 					},
