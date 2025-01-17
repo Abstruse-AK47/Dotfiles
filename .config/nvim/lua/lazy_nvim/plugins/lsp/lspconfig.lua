@@ -134,6 +134,13 @@ return {
 		lspconfig["pyright"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			--	filetypes = { "python", "quarto" },
+		})
+
+		-- configure python server
+		lspconfig["clangd"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
 		})
 
 		-- configure lua server (with special settings)

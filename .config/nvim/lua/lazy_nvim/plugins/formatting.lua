@@ -17,10 +17,10 @@ return {
 				json = { "prettier" },
 				yaml = { "prettier" },
 				markdown = { "prettier" },
-				quarto = { "isort", "black", "prettier" },
 				graphql = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
+				quarto = { "prettier", "isort", "black" },
 				cpp = { "clang-format" },
 			},
 			format_on_save = {

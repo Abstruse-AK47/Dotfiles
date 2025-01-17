@@ -92,6 +92,3 @@ keymap.set("i", "<m-n>", "|>", { desc = "pipe" })
 
 --noice nvim
 keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" })
-
-keymap.set("n", "<leader>/", "<cmd>NoiceDismiss<CR>"", { desc = "Dismiss Noice Message" })
-
