@@ -193,8 +193,10 @@ return {
 
 	{
 		"3rd/image.nvim",
+		dependencies = { "https://github.com/leafo/magick" },
 		config = function()
 			require("image").setup({
+				-- backend = "ueberzug",
 				max_width = 80,
 				max_height = 20,
 			})
