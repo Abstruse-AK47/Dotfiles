@@ -42,6 +42,7 @@ return {
 			)
 			keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 			keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>", { desc = "Find undo" })
+			keymap.set("n", "<leader>fn", "<cmd>Telescope notify", { desc = "Notify" })
 		end,
 	},
 	{

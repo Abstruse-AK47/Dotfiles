@@ -96,6 +96,24 @@ return {
 		},
 	},
 	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && npm install && git restore .",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+		keys = {
+			{
+				"<leader>mp",
+				ft = "markdown",
+				"<cmd>MarkdownPreviewToggle<cr>",
+				desc = "Markdown Preview",
+			},
+		},
+	},
+
+	{
 		"bullets-vim/bullets.vim",
 		config = function()
 			-- Disable deleting the last empty bullet when pressing <cr> or 'o'
