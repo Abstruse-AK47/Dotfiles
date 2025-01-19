@@ -1,0 +1,40 @@
+[2m2024-12-11T11:55:35.716401Z[0m [31mERROR[0m [2mglazewm::common::commands::shell_exec[0m[2m:[0m [3merr_message[0m[2m=[0m"Failed to execute 'tmux'.\n\nError: The operation was canceled by the user. (0x800704C7)"
+[2m2024-12-11T16:01:48.464617Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m keybindings[15].commands: unrecognized subcommand
+ at line 206 column 15
+[2m2024-12-11T16:01:56.658468Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m keybindings[15].commands: unrecognized subcommand
+ at line 206 column 15
+[2m2024-12-11T16:02:19.869982Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m keybindings[15].commands: unrecognized subcommand
+ at line 206 column 15
+[2m2024-12-11T16:05:29.592019Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m keybindings[15].commands: unrecognized subcommand
+ at line 206 column 15
+[2m2024-12-11T16:08:44.625272Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m keybindings[15].commands: unrecognized subcommand
+ at line 206 column 15
+[2m2024-12-11T17:19:12.083753Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Another instance of the application is already running.
+[2m2024-12-11T17:19:35.698705Z[0m [31mERROR[0m [2mglazewm::common::commands::shell_exec[0m[2m:[0m [3merr_message[0m[2m=[0m"Failed to execute 'zebar'.\n\nError: The operation was canceled by the user. (0x800704C7)"
+[2m2024-12-11T17:21:25.992469Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No parent
+[2m2024-12-12T10:50:27.910256Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No parent
+[2m2024-12-12T17:15:18.116328Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m did not find expected key at line 125 column 5, while parsing a block mapping at line 124 column 4
+[2m2024-12-12T17:15:22.148491Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m did not find expected key at line 125 column 5, while parsing a block mapping at line 124 column 4
+[2m2024-12-12T17:24:19.949777Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No parent
+[2m2024-12-12T20:47:57.726530Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m No parent
+[2m2024-12-13T15:27:06.652384Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m window_behavior.initial_state: unknown variant `titling`, expected `tiling` or `floating` at line 91 column 18
+[2m2024-12-13T15:28:00.807302Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m window_behavior.initial_state: unknown variant `fullscreen`, expected `tiling` or `floating` at line 91 column 18
+[2m2024-12-28T22:29:18.703267Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Invalid window handle. (0x80070578)
+[2m2025-01-07T19:55:19.424740Z[0m [31mERROR[0m [2mglazewm::common::commands::shell_exec[0m[2m:[0m [3merr_message[0m[2m=[0m"Failed to execute 'Ubuntu'.\n\nError: The operation was canceled by the user. (0x800704C7)"
+[2m2025-01-07T20:02:26.027665Z[0m [31mERROR[0m [2mglazewm::common::commands::shell_exec[0m[2m:[0m [3merr_message[0m[2m=[0m"Failed to execute 'WindowsTerminal'.\n\nError: The operation was canceled by the user. (0x800704C7)"
+[2m2025-01-07T20:03:02.743962Z[0m [31mERROR[0m [2mglazewm::common::commands::shell_exec[0m[2m:[0m [3merr_message[0m[2m=[0m"Failed to execute 'Terminal'.\n\nError: The operation was canceled by the user. (0x800704C7)"
+[2m2025-01-08T13:36:55.094677Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m did not find expected key at line 135 column 2, while parsing a block mapping
+[2m2025-01-08T13:37:11.713995Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m did not find expected key at line 135 column 2, while parsing a block mapping
+[2m2025-01-08T13:37:30.976389Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m did not find expected key at line 135 column 2, while parsing a block mapping
+[2m2025-01-08T13:38:13.404453Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m did not find expected key at line 135 column 2, while parsing a block mapping
+[2m2025-01-08T13:38:22.296608Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m did not find expected key at line 135 column 2, while parsing a block mapping
+[2m2025-01-08T13:39:30.666938Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m did not find expected key at line 134 column 2, while parsing a block mapping
+[2m2025-01-08T13:39:51.413405Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m did not find expected key at line 134 column 2, while parsing a block mapping
+[2m2025-01-08T13:40:12.995823Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m did not find expected key at line 134 column 2, while parsing a block mapping
+[2m2025-01-08T13:40:26.071479Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m did not find expected key at line 135 column 2, while parsing a block mapping
+[2m2025-01-08T13:40:54.395720Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m did not find expected key at line 135 column 2, while parsing a block mapping
+[2m2025-01-08T13:41:29.154676Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m did not find expected key at line 135 column 2, while parsing a block mapping
+[2m2025-01-08T13:42:18.320746Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m did not find expected key at line 135 column 2, while parsing a block mapping
+[2m2025-01-08T13:43:16.712886Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m did not find expected key at line 135 column 2, while parsing a block mapping
+[2m2025-01-08T13:43:24.711995Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m window_rules[2]: missing field `match` at line 135 column 5
+[2m2025-01-08T13:43:48.108134Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m did not find expected '-' indicator at line 139 column 7, while parsing a block collection at line 138 column 7
