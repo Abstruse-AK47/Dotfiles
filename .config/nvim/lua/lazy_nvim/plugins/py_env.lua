@@ -21,7 +21,7 @@ return {
 	},
 	{
 		"kmontocam/nvim-conda",
-		enabled = false,
+		enabled = true,
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 }
