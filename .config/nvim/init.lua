@@ -1,11 +1,16 @@
 vim.g.mapleader = " "
 
+-- setting vim main clipboard
 vim.opt.clipboard = "unnamedplus"
+
+-- setting cmd height
 vim.opt.cmdheight = 0
+
+-- for find
 vim.opt.wildmenu = true
 
-vim.wo.foldmethod = "expr"
-vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- for notify
+vim.opt.termguicolors = true
 
 --Intializing plugins
 require("lazy_nvim.lazy")
@@ -36,6 +41,10 @@ end
 -- Map a key to toggle the tab bar (e.g., <leader>tt)
 vim.api.nvim_set_keymap("n", "<leader>it", ":lua ToggleTabLine()<CR>", { noremap = true, silent = true })
 --
+
+-- for treesitter--code folding
+vim.wo.foldmethod = "expr"
+vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 -- Apply settings after lazy_nvim is loaded
 vim.defer_fn(function()
