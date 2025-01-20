@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 
 vim.opt.clipboard = "unnamedplus"
 vim.opt.cmdheight = 0
+vim.opt.wildmenu = true
 
 --Intializing plugins
 require("lazy_nvim.lazy")
