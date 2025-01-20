@@ -120,6 +120,7 @@ alias help="compgen -c | fzf | xargs man"
 alias wezterm="/mnt/c/Program\ Files/WezTerm/wezterm.exe"
 alias md="mkdir -p"
 alias rd="rmdir"
+alias dotfiles="./dotfiles.sh"
 
 # # >>> conda initialize >>>
 # # !! Contents within this block are managed by 'conda init' !!
