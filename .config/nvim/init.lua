@@ -4,6 +4,9 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.cmdheight = 0
 vim.opt.wildmenu = true
 
+vim.wo.foldmethod = "expr"
+vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
 --Intializing plugins
 require("lazy_nvim.lazy")
 require("lazy_nvim.core")
