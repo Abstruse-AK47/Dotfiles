@@ -3,7 +3,7 @@
 HISTFILE=~/.zsh_history
 HISTSIZE=5000
 SAVEHIST=1000\
-	
+
 setopt autocd extendedglob nomatch notify
 unsetopt beep
 bindkey -v
@@ -31,11 +31,12 @@ export PATH=/usr/bin:$PATH
 export CUDNN_PATH=$(dirname $(python3 -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
 #export LD_LIBRARY_PATH=${CUDNN_PATH}/lib
 export XLA_FLAGS=--xla_gpu_cuda_data_dir=/usr/lib/cuda
-#export LD_LIBRARY_PATH="/usr/lib/wsl/lib/"  
+#export LD_LIBRARY_PATH="/usr/lib/wsl/lib/"
 export NUMBA_CUDA_DRIVER="/usr/lib/wsl/lib/libcuda.so.1"
 export PATH=/usr/local/cuda/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 export EDITOR="nvim"
+export DISPLAY=localhost:0.0
 
 # End of lines added by compinstall
 
@@ -115,7 +116,7 @@ alias z='eza --icons=always'
 alias gawk="awk"
 alias Ipython="python3 -m IPython"
 alias code="codium"
-alias help="compgen -c | fzf | xargs man" 
+alias help="compgen -c | fzf | xargs man"
 alias wezterm="/mnt/c/Program\ Files/WezTerm/wezterm.exe"
 alias md="mkdir -p"
 alias rd="rmdir"
@@ -134,7 +135,7 @@ alias rd="rmdir"
 # fi
 # unset __conda_setup
 # # <<< conda initialize <<<
-#
+
 
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
