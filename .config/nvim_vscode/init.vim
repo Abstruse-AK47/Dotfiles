@@ -3,6 +3,7 @@
 set clipboard=unnamedplus
 set ignorecase
 set smartcase
+let mapleader = " "
 " execute 'luafile ' . stdpath('config') . '/lua/settings.lua'
 function! s:manageEditorSize(...)
     let count = a:1
@@ -78,5 +79,5 @@ nmap gcc <Plug>VSCodeCommentaryLine
 nmap <Tab> :Tabnext<CR>
 nmap <S-Tab> :Tabprev<CR>
 
-nmap <jk> <ESC>
+nmap jk <ESC>
 

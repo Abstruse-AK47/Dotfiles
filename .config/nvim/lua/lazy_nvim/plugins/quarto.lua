@@ -159,14 +159,14 @@ return {
 		ft = { "markdown", "quarto", "latex" },
 		opts = {
 			default = {
-				dir_path = "img",
+				dir_path = "assets/imgs",
 			},
 			filetypes = {
 				markdown = {
 					url_encode_path = true,
 					template = "![$CURSOR]($FILE_PATH)",
 					drag_and_drop = {
-						download_images = false,
+						download_images = true,
 					},
 				},
 				quarto = {
@@ -174,6 +174,19 @@ return {
 					template = "![$CURSOR]($FILE_PATH)",
 					drag_and_drop = {
 						download_images = false,
+					},
+				},
+			},
+			dirs = {
+				["/mnt/d/Vault/Idk"] = {
+					filetypes = {
+						markdown = {
+							url_encode_path = true,
+							template = "![[$FILE_NAME]]",
+							drag_and_drop = {
+								download_images = true,
+							},
+						},
 					},
 				},
 			},
@@ -207,7 +220,7 @@ return {
 		"benlubas/molten-nvim",
 		enable = true,
 		build = ":UpdateRemotePlugins",
-		dependencies = "willothy/wezterm.nvim",
+		--	dependencies = "willothy/wezterm.nvim",
 		init = function()
 			vim.g.molten_image_provider = "image.nvim"
 			--vim.g.molten_open_cmd = "wsl-open" -- "/mnt/c/Program Files/Mozilla Firefox/firefox.exe"

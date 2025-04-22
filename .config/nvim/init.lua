@@ -45,6 +45,7 @@ vim.api.nvim_set_keymap("n", "<leader>it", ":lua ToggleTabLine()<CR>", { noremap
 -- for treesitter--code folding
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldenable = false
 
 -- Apply settings after lazy_nvim is loaded
 vim.defer_fn(function()

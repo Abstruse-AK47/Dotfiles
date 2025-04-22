@@ -35,4 +35,25 @@ return {
 		version = "*", -- Use for stability; omit to use `main` branch for the latest features
 		config = true,
 	},
+	{
+		"polirritmico/simple-boolean-toggle.nvim",
+		event = { "BufReadPost", "BufWritePost", "BufNewFile" }, -- For lazy loading
+		keys = {
+			{
+				"<leader>tb",
+				":lua require('simple-boolean-toggle').toggle_builtins()<Cr>",
+				desc = "Boolean Toggle: On/Off",
+			},
+		},
+		opts = {
+			extend_booleans = {
+				-- Use only Title Case, upper and lower cases are auto-generated
+				{ "High", "Low" },
+				-- Manually define upper and lower case variants for auto-generation
+				-- { "Something", "Nothing", { uppercase = true, lowercase = false } },
+				-- Or match only one case:
+				-- { "foO", "bAR", { uppercase = false, lowercase = false } },
+			},
+		},
+	},
 }

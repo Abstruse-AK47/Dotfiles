@@ -5,6 +5,11 @@ return {
 		lazy = true,
 		ft = "markdown",
 		-- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+		keys = {
+			{ "<leader>oo", "<cmd>ObsidianOpen<cr>", desc = "Obsidian Open" },
+			{ "<leader>on", "<cmd>ObsidianNew<cr>", desc = "Obdsidian New Note" },
+			{ "<leader>ot", "<cmd>ObsidianTags<cr>", desc = "Search Tags" },
+		},
 		event = {
 			--   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
 			--   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
@@ -66,6 +71,18 @@ return {
 					end
 					return tostring(os.time()) .. "-" .. suffix
 				end,
+				daily_notes = {
+					-- Optional, if you keep daily notes in a separate directory.
+					folder = "Daily",
+					-- Optional, if you want to change the date format for the ID of daily notes.
+					date_format = "%Y-%m-%d",
+					-- Optional, if you want to change the date format of the default alias of daily notes.
+					alias_format = "%B %-d, %Y",
+					-- Optional, default tags to add to each new daily note created.
+					default_tags = { "daily-notes" },
+					-- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+					template = nil,
+				},
 			})
 
 			vim.wo.conceallevel = 1
@@ -73,7 +90,7 @@ return {
 	},
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
-		dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" },
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons", opt = true },
 		opts = {
 			latex = { enabled = false },
 			win_options = { conceallevel = { rendered = 2 } },
@@ -119,6 +136,7 @@ return {
 			-- Disable deleting the last empty bullet when pressing <cr> or 'o'
 			-- default = 1
 			vim.g.bullets_delete_last_bullet_if_empty = 1
+			vim.g.bullets_line_spacing = 2
 
 			-- (Optional) Add other configurations here
 			-- For example, enabling/disabling mappings

@@ -6,21 +6,21 @@ return {
 		priority = 1000, -- make sure to load this before all the other start plugins
 		transparent = true,
 		config = function()
-			require("nightfly").custom_colors({
-				styles = {
-					sidebars = "transparent" or "dark",
-					floats = "transparent" or "dark",
-					highlight = "transparent" or "dark",
-				},
-				-- on_colors = function(colors)
-				-- 	colors.bg_dark = colors.none
-				-- 	colors.bg_float = colors.none
-				-- 	colors.bg_highlight = colors.none
-				-- 	colors.bg_sidebar = colors.none
-				-- 	colors.bg_statusline = colors.none
-				-- 	colors.fg_float = colors.none
-				-- end,
-			})
+			-- require("nightfly").custom_colors({
+			-- 	styles = {
+			-- 		sidebars = "transparent" or "dark",
+			-- 		floats = "transparent" or "dark",
+			-- 		highlight = "transparent" or "dark",
+			-- 	},
+			-- on_colors = function(colors)
+			-- 	colors.bg_dark = colors.none
+			-- 	colors.bg_float = colors.none
+			-- 	colors.bg_highlight = colors.none
+			-- 	colors.bg_sidebar = colors.none
+			-- 	colors.bg_statusline = colors.none
+			-- 	colors.fg_float = colors.none
+			-- end,
+			-- })
 			-- load the colorscheme here
 			vim.cmd([[colorscheme nightfly]])
 		end,
@@ -53,6 +53,7 @@ return {
 				"SignColumn",
 				"CursorLineNr",
 				"EndOfBuffer",
+				"CursorLine",
 			},
 			-- table: additional groups that should be cleared
 			extra_groups = {
