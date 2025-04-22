@@ -37,6 +37,7 @@ export PATH=/usr/local/cuda/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 export EDITOR="nvim"
 export DISPLAY=localhost:0.0
+# export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
 
 # End of lines added by compinstall
 
@@ -146,3 +147,5 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk "{print \$2}"):0
