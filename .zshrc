@@ -1,4 +1,3 @@
-
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
 HISTSIZE=5000
@@ -20,6 +19,7 @@ compinit
 #EXPORTS
 export GDK_SCALE=2
 export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH=/usr/bin:$PATH
 path+=('/home/madara/.cargo/bin')
 path+=('/usr/local/go/bin')
 path+=('/home/madara/oh-my-posh')
@@ -27,7 +27,6 @@ path+=('/home/madara/.local/bin')
 export PATH="/home/madara/.local/bin:$PATH"
 export FPATH="<path_to_eza>/completions/zsh:$FPATH"
 export PATH="/usr/local/bin:$PATH"
-export PATH=/usr/bin:$PATH
 export CUDNN_PATH=$(dirname $(python3 -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
 #export LD_LIBRARY_PATH=${CUDNN_PATH}/lib
 export XLA_FLAGS=--xla_gpu_cuda_data_dir=/usr/lib/cuda
@@ -37,6 +36,7 @@ export PATH=/usr/local/cuda/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 export EDITOR="nvim"
 export DISPLAY=localhost:0.0
+export TESSDATA_PREFIX=/usr/share/tessdata/
 # export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
 
 # End of lines added by compinstall
@@ -123,21 +123,20 @@ alias md="mkdir -p"
 alias rd="rmdir"
 alias dotfiles="./dotfiles.sh"
 
-# # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/madara/miniforge3/bin/miniforge' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/madara/miniforge3/etc/profile.d/miniforge.sh" ]; then
-#         . "/home/madara/miniforge3/etc/profile.d/miniforge.sh"
-#     else
-#         export PATH="/home/madara/miniforge3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# # <<< conda initialize <<<
-
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/madara/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/madara/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/madara/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/madara/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -148,4 +147,6 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+
+export PATH=/usr/bin:$PATH
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk "{print \$2}"):0

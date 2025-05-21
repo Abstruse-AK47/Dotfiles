@@ -1,6 +1,8 @@
 return {
 	{
 		"jpalardy/vim-slime",
+		event = "VeryLazy",
+		ft = "python",
 		init = function()
 			vim.g.slime_last_channel = { nil }
 			-- will use `# %%` to define cells
@@ -100,7 +102,8 @@ return {
 	{ -- requires plugins in lua/plugins/treesitter.lua and lua/plugins/lsp.lua
 		-- for complete functionality (language features)
 		"quarto-dev/quarto-nvim",
-		ft = { "quarto" },
+		event = "VeryLazy",
+		ft = "quarto",
 		dev = false,
 		closePreviewOnExit = true,
 		opts = {
@@ -137,6 +140,8 @@ return {
 		-- needs:
 		-- pip install jupytext
 		"GCballesteros/jupytext.nvim",
+		ft = { "quarto" },
+		event = "VeryLazy",
 		opts = {
 			custom_language_formatting = {
 				python = {
@@ -155,7 +160,7 @@ return {
 
 	{ -- paste an image from the clipboard or drag-and-drop
 		"HakonHarnes/img-clip.nvim",
-		event = "BufEnter",
+		event = { "BufEnter", "VeryLazy" },
 		ft = { "markdown", "quarto", "latex" },
 		opts = {
 			default = {
@@ -204,8 +209,9 @@ return {
 		},
 	},
 
-	{
+	--[[ {
 		"3rd/image.nvim",
+		enable = false,
 		dependencies = { "https://github.com/leafo/magick" },
 		config = function()
 			require("image").setup({
@@ -214,15 +220,16 @@ return {
 				max_height = 20,
 			})
 		end,
-	},
+	}, ]]
 
 	{
 		"benlubas/molten-nvim",
 		enable = true,
+		lazy = true,
 		build = ":UpdateRemotePlugins",
 		--	dependencies = "willothy/wezterm.nvim",
 		init = function()
-			vim.g.molten_image_provider = "image.nvim"
+			-- vim.g.molten_image_provider = "image.nvim"
 			--vim.g.molten_open_cmd = "wsl-open" -- "/mnt/c/Program Files/Mozilla Firefox/firefox.exe"
 			vim.g.molten_output_win_max_height = 50
 			vim.g.molten_output_win_max_width = 500

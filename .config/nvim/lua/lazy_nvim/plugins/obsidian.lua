@@ -90,6 +90,8 @@ return {
 	},
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
+		event = "VeryLazy",
+		ft = { "markdown" },
 		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons", opt = true },
 		opts = {
 			latex = { enabled = false },
@@ -114,6 +116,7 @@ return {
 	},
 	{
 		"iamcco/markdown-preview.nvim",
+		event = "VeryLazy",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		build = "cd app && npm install && git restore .",
 		init = function()
@@ -132,6 +135,7 @@ return {
 
 	{
 		"bullets-vim/bullets.vim",
+		ft = { "markdown" },
 		config = function()
 			-- Disable deleting the last empty bullet when pressing <cr> or 'o'
 			-- default = 1

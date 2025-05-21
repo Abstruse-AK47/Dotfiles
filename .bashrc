@@ -152,3 +152,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+export TESSDATA_PREFIX=/usr/share/tessdata/
+export PATH="$HOME/.local/bin:$PATH"

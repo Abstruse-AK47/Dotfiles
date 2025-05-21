@@ -19,6 +19,10 @@ keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Save File" })
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
 
+-- Move a line Up and Down
+keymap.set("n", "[e", "<cmd>:m -2<CR>", { desc = "Move a line Up" }) -- LineUp
+keymap.set("n", "]e", "<cmd>:m +1<CR>", { desc = "Move a line Down" }) -- LineDown
+
 -- PageUp and PageDown
 keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Move a PageDown " }) -- PageDown
 keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Move a PageUp" }) -- PageUp
@@ -28,6 +32,7 @@ keymap.set("n", "n", "nzzzv", { desc = "Moving next word" }) -- PageDown
 keymap.set("n", "N", "Nzzzv", { desc = "Moving previous word" }) -- PageUp
 
 -- window management
+
 -- tabs
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab

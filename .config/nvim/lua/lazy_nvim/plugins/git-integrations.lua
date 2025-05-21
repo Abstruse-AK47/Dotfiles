@@ -1,6 +1,7 @@
 return {
 	{
 		"lewis6991/gitsigns.nvim",
+		event = "VeryLazy",
 		opts = {
 			on_attach = function(bufnr)
 				local gs = package.loaded.gitsigns
@@ -59,6 +60,7 @@ return {
 	},
 	{
 		"NeogitOrg/neogit",
+		event = "VeryLazy",
 		dependencies = {
 			"nvim-lua/plenary.nvim", -- required
 			"sindrets/diffview.nvim", -- optional - Diff integration

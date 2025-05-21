@@ -12,6 +12,8 @@ config.default_domain = "WSL:Arch"
 config.front_end = "OpenGL"
 config.font = wezterm.font("Agave Nerd Font")
 
+config.enable_kitty_graphics = true
+
 config.window_background_opacity = 0.8
 config.window_decorations = "RESIZE"
 config.window_close_confirmation = "NeverPrompt"
@@ -20,4 +22,5 @@ config.enable_wayland = true
 config.enable_kitty_graphics = true
 
 config.default_cursor_style = "SteadyBar"
+
 return config
