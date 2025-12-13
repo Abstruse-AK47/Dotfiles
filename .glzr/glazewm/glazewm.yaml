@@ -12,7 +12,7 @@ general:
   # Commands to run after the WM config is reloaded.
   config_reload_commands: []
 
-  # Whether to automatically focus windows underneath the cursor.
+  # Whethe r to automatically focus windows underneath the cursor.
   focus_follows_cursor: true
 
   # Whether to switch back and forth between the previously focused
@@ -32,7 +32,7 @@ general:
   # - 'cloak': Recommended. Hides windows with no animation.
   # - 'hide': Legacy method (v3.5 and earlier) that has a brief animation,
   # but has stability issues with some apps.
-  hide_method: "hide"
+  hide_method: "cloak"
 
   # Affects which windows get shown in the native Windows taskbar. Has no
   # effect if `hide_method: 'hide'`.
@@ -160,7 +160,6 @@ window_rules:
       # Set EarTrumpets "Volume Mixer" window to float and center it
       - window_process: { regex: "Taskmgr" }
       - window_process: { equals: "winspy" }
-      - window_process: {equals: "steamwebhelper"}
       - window_process: {equals: "TeraCopy"}
       #- window_process: { equals: "DS4Windows" }
 
@@ -187,6 +186,10 @@ window_rules:
       - window_process: { equals: "Lively" }
         window_class: { regex: "HwndWrapper" }
       # Games
+      - window_process: {equals: "steamwebhelper"}
+      - window_process: {equals: "DyingLightGame_TheBeast_x64_rwd"}
+
+      #
       # - window_process : {equals: 'Marvel-Win64-Shipping'}
       # - window_process : {equals: 'cs2'}
 

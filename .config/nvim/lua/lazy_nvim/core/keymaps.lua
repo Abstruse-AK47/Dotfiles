@@ -46,6 +46,9 @@ keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Tmux Navigate Do
 keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Tmux Navigate Up" })
 keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Tmux Navigate Right" })
 
+-- Save without formatting
+keymap.set("n", "<leader>Ws", ":noautocmd w<CR>", { desc = "Save without auto-format" })
+
 --snippets
 
 local is_code_chunk = function()

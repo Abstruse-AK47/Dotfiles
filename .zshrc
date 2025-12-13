@@ -29,7 +29,7 @@ export FPATH="<path_to_eza>/completions/zsh:$FPATH"
 export PATH="/usr/local/bin:$PATH"
 export CUDNN_PATH=$(dirname $(python3 -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
 #export LD_LIBRARY_PATH=${CUDNN_PATH}/lib
-export XLA_FLAGS=--xla_gpu_cuda_data_dir=/usr/lib/cuda
+export XLA_FLAGS=--xla_gpu_cuda_data_dir=/opt/cuda
 #export LD_LIBRARY_PATH="/usr/lib/wsl/lib/"
 export NUMBA_CUDA_DRIVER="/usr/lib/wsl/lib/libcuda.so.1"
 export PATH=/usr/local/cuda/bin:$PATH
@@ -104,12 +104,6 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 
-# Completion styling
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Alias
 alias bat='batcat'
@@ -118,7 +112,7 @@ alias gawk="awk"
 alias Ipython="python3 -m IPython"
 alias code="codium"
 alias help="compgen -c | fzf | xargs man"
-alias wezterm="/mnt/c/Program\ Files/WezTerm/wezterm.exe"
+# alias wezterm="/mnt/c/Program\ Files/WezTerm/wezterm.exe"
 alias md="mkdir -p"
 alias rd="rmdir"
 alias dotfiles="./dotfiles.sh"
@@ -150,3 +144,13 @@ function y() {
 
 export PATH=/usr/bin:$PATH
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk "{print \$2}"):0
+
+function pip() {
+  # Check if we're inside a virtual environment
+  if [[ -n "$VIRTUAL_ENV" && "$1" == "install" ]]; then
+    echo "[pip wrapper] Inside virtualenv: adding --no-user"
+    command pip install --no-user "${@:2}"
+  else
+    command pip "$@"
+  fi
+}

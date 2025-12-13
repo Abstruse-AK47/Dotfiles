@@ -209,18 +209,30 @@ return {
 		},
 	},
 
-	--[[ {
+	{
 		"3rd/image.nvim",
-		enable = false,
 		dependencies = { "https://github.com/leafo/magick" },
 		config = function()
 			require("image").setup({
-				-- backend = "ueberzug",
+				backend = "kitty",
 				max_width = 80,
 				max_height = 20,
+				intgerations = {
+					markdown = {
+						resolve_image_path = function(document_path, image_path, fallback)
+							local working_dir = vim.fn.getcwd()
+							-- Format image path for Obsidian notes
+							if working_dir:find("/mnt/d/Vault/**/*.md", 1, true) then
+								return working_dir .. "/" .. image_path
+							end
+							-- Fallback to the default behavior
+							return fallback(document_path, image_path)
+						end,
+					},
+				},
 			})
 		end,
-	}, ]]
+	},
 
 	{
 		"benlubas/molten-nvim",
@@ -229,11 +241,12 @@ return {
 		build = ":UpdateRemotePlugins",
 		--	dependencies = "willothy/wezterm.nvim",
 		init = function()
-			-- vim.g.molten_image_provider = "image.nvim"
+			vim.g.molten_image_provider = "image.nvim"
 			--vim.g.molten_open_cmd = "wsl-open" -- "/mnt/c/Program Files/Mozilla Firefox/firefox.exe"
 			vim.g.molten_output_win_max_height = 50
 			vim.g.molten_output_win_max_width = 500
 			vim.g.molten_use_border_highlights = true
+			vim.g.molten_image_location = "float"
 			vim.g.molten_auto_open_output = false
 			vim.g.molten_auto_image_popup = false
 			vim.g.molten_virt_text_output = true
