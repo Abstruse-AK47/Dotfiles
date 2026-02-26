@@ -127,11 +127,11 @@ workspaces:
     display_name: "Browser"
     bind_to_monitor: 1
   - name: "5"
-    display_name: "Other Stuff"
+    display_name: "Obsidian"
     bind_to_monitor: 1
   - name: "6"
     bind_to_monitor: 1
-    display_name: "Obsidian"
+    display_name: "OtherStuff"
   - name: "7"
     display_name: "Monitor Right 2"
     bind_to_monitor: 0
@@ -150,7 +150,7 @@ window_rules:
       # Move Discord and Spotify to workspace 3.
       - window_process: { regex: "Discord|Spotify" }
 
-  - commands: ["move --workspace 6"]
+  - commands: ["move --workspace 5"]
     match:
       # Move Obsidian to workspace 6.
       - window_process: { regex: "Obsidian" }

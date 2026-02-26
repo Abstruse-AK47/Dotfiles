@@ -211,10 +211,11 @@ return {
 
 	{
 		"3rd/image.nvim",
+		enabled = not vim.g.neovide,
 		dependencies = { "https://github.com/leafo/magick" },
 		config = function()
 			require("image").setup({
-				backend = "kitty",
+				backend = "sixel",
 				max_width = 80,
 				max_height = 20,
 				intgerations = {
@@ -246,7 +247,7 @@ return {
 			vim.g.molten_output_win_max_height = 50
 			vim.g.molten_output_win_max_width = 500
 			vim.g.molten_use_border_highlights = true
-			vim.g.molten_image_location = "float"
+			vim.g.molten_image_location = "both"
 			vim.g.molten_auto_open_output = false
 			vim.g.molten_auto_image_popup = false
 			vim.g.molten_virt_text_output = true

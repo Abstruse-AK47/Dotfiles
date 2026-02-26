@@ -53,3 +53,8 @@ vim.defer_fn(function()
 	vim.o.laststatus = 0 -- Status line is off by default
 	vim.o.showtabline = 0 -- Tab bar is off by default
 end, 100)
+
+-- Neovide settings
+vim.g.neovide_opacity = 0.8
+vim.g.neovide_normal_opacity = 0.8
+vim.o.guifont = "Agave Nerd Font:h12"

@@ -5,13 +5,13 @@ SAVEHIST=1000\
 
 setopt autocd extendedglob nomatch notify
 unsetopt beep
-bindkey -v
+bindkey -e
 
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/madara/.zshrc'
 
-autoload -Uz compinit && compinit
+autoload -Uz compinit 
 autoload bashcompinit
 bashcompinit
 compinit
@@ -83,7 +83,6 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 zinit ice depth=1
-zinit light jeffreytse/zsh-vi-mode
 
 # Add in snippets
 zinit snippet OMZL::git.zsh
@@ -94,7 +93,6 @@ zinit snippet OMZP::aws
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
-zinit snippet OMZP::docker
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -107,7 +105,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Alias
 alias bat='batcat'
-alias z='eza --icons=always'
+alias z='eza --icons=always -a --git'
 alias gawk="awk"
 alias Ipython="python3 -m IPython"
 alias code="codium"
@@ -116,6 +114,7 @@ alias help="compgen -c | fzf | xargs man"
 alias md="mkdir -p"
 alias rd="rmdir"
 alias dotfiles="./dotfiles.sh"
+alias neovide="neovide.exe --wsl"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -143,7 +142,7 @@ function y() {
 
 
 export PATH=/usr/bin:$PATH
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk "{print \$2}"):0
+# export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk "{print \$2}"):0
 
 function pip() {
   # Check if we're inside a virtual environment
@@ -154,3 +153,14 @@ function pip() {
     command pip "$@"
   fi
 }
+
+# --- Custom Keybindings ---
+
+# 1. Enable Ctrl+F to accept autosuggestions
+bindkey '^F' autosuggest-accept
+
+# 2. Setup Edit-Command-Line (Ctrl+X, E to open in nvim)
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^Xe' edit-command-line
+bindkey '^X^E' edit-command-line
